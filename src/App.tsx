@@ -12,6 +12,7 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
  */
 
 const LS_KEY = "ascension:tracker:v7";
+const ASSET = (p: string) => import.meta.env.BASE_URL + p;
 
 type HistoryItem = { res: 1 | 2; kind: "gain" | "spend"; delta: number; note?: string; ts: number };
 type TrackerState = {
@@ -323,8 +324,8 @@ export default function App() {
       <main className="px-3 pb-24 grid gap-3 max-w-[720px] mx-auto">
         {/* Cards dos recursos (uma coluna no mobile; duas a partir de md) */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-          <ResourceCard idx={1} icon={"/icons/runa_clean.png"} />
-          <ResourceCard idx={2} icon={"/icons/poder_clean.png"} />
+        <ResourceCard idx={1} icon={ASSET("icons/runa_clean.png")} />
+        <ResourceCard idx={2} icon={ASSET("icons/poder_clean.png")} />
         </div>
 
         {/* Histórico resumido */}
