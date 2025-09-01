@@ -1,8 +1,7 @@
-// vite.config.js
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
 
-// StackBlitz lida melhor com config em JS do que TS
 export default defineConfig({
+  base: '/ascension/',   // ex: '/ascension-tracker/'
   plugins: [react()],
-})
+});
