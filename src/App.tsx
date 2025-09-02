@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
+import { UndoIcon, ResetIcon, ClearIcon } from "./icons";
 
 /**
  * Ascension Tracker – Mobile/PWA-first
@@ -112,7 +113,7 @@ function TapBtn({
       onClick={onClick}
       className="flex-1 min-w-[68px] h-12 rounded-2xl text-base font-semibold shadow-sm
                  border border-white/10 bg-white/10 backdrop-blur
-                 active:scale-[.98] transition"
+                 active:scale-[.98] transition flex items-center justify-center gap-2"
     >
       {children}
     </button>
@@ -317,6 +318,7 @@ export default function App() {
     >
       {/* topo compacto */}
       <header className="px-3 pt-3 pb-2 flex items-center gap-2">
+        <img src={ASSET("icon-512.png")} alt="Ascension" className="w-8 h-8" />
         <h1 className="text-xl font-extrabold tracking-tight">Ascension</h1>
         <span className="text-xs text-white/70">Tracker</span>
       </header>
@@ -364,9 +366,18 @@ export default function App() {
                    border-t border-white/10 px-3 py-2"
       >
         <div className="max-w-[720px] mx-auto grid grid-cols-3 gap-2">
-          <TapBtn onClick={undo} title="Desfazer última ação">Desfazer</TapBtn>
-          <TapBtn onClick={resetRound} title="Zerar gastos da rodada">Nova</TapBtn>
-          <TapBtn onClick={clearAll} title="Voltar ao padrão">Limpar</TapBtn>
+          <TapBtn onClick={undo} title="Desfazer última ação">
+          <UndoIcon />
+          Desfazer
+          </TapBtn>
+          <TapBtn onClick={resetRound} title="Zerar gastos da rodada">
+          <ResetIcon />
+          Nova
+          </TapBtn>
+          <TapBtn onClick={clearAll} title="Voltar ao padrão">
+          <ClearIcon />
+          Limpar
+          </TapBtn>
         </div>
       </nav>
     </div>
